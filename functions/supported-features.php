@@ -7,6 +7,7 @@
  */
 $supported_features = [
     "custom-logo" => false,
+    "post-thumbnails" => false,
     "title-tag" => false,
 ];
 foreach ($supported_features as $feature => $args) {
