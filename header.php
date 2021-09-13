@@ -1,19 +1,24 @@
 <?php
-$props = array_merge(
-    [
-        "lang" => "en",
-        "body_class" => "",
-    ],
-    $args
-); ?>
-<!DOCTYPE html>
-<html lang="<?php echo $props["lang"]; ?>">
+$defaults = [
+    "lang" => "en",
+    "body_class" => null,
+    "nav" => true,
+];
+$args = $args ?: [];
+extract(array_merge($defaults, $args));
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php wp_head(); ?>
-</head>
+// get wp_head contents
+ob_start();
+wp_head();
+$head = ob_get_contents();
+ob_end_clean();
 
-<body class='<?php body_class($props["body_class"]); ?>'>
-    <?php get_template_part("template-parts/header/header-nav"); ?>
+echo "<!DOCTYPE html>
+    <html lang='$lang'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        $head
+    </head>
+    <body class='$body_class'>
+";
