@@ -15,7 +15,7 @@ $defaults = [
     "logo_link" => get_site_url(),
     "logo_text" => $logo_text,
     "menu_location" => "main_menu",
-    "skip_link_text" => __("Skip to content", "boldium"),
+    "skip_link_text" => __("Skip to content", "wordpressstarter"),
     "skip_link_url" => "#h1",
 ];
 extract(array_merge($defaults, $args));
