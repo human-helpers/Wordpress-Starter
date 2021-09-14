@@ -15,6 +15,8 @@ $defaults = [
     "logo_link" => get_site_url(),
     "logo_text" => $logo_text,
     "menu_location" => "main_menu",
+    "skip_link_text" => __("Skip to content", "boldium"),
+    "skip_link_url" => "#h1",
 ];
 extract(array_merge($defaults, $args));
 
@@ -32,6 +34,9 @@ if (empty($logo_id)) {
 
 // markup
 echo "<$is class='main-menu__wrapper $class''>
+        <a href='$skip_link_url' class='skip-link'>
+            $skip_link_text
+        </a>
         <div>
             <a class='logo__link' href='$logo_link'>
                 $logo
