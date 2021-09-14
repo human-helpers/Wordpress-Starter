@@ -1,7 +1,7 @@
 <?php
 $defaults = [
-    "lang" => "en",
     "body_class" => null,
+    "lang" => "en",
     "nav" => true,
 ];
 $args = $args ?: [];
